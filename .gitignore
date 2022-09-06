@@ -1,2 +1,4 @@
-.pptx
-.idea
+/.pptx/
+/.idea/
+/vendor/
+/php-cs-fixer.php/
