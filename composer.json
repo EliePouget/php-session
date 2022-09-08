@@ -17,7 +17,9 @@
             "email": "elie.pouget@etudiant.univ-reims.fr"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-pdo": "*"
+    },
     "scripts": {
         "test:cs": "php vendor/bin/php-cs-fixer fix --dry-run",
         "fix:cs": "php vendor/bin/php-cs-fixer fix",
