@@ -101,9 +101,8 @@ class CountrySelect
     }
     public function setSelectedFromRequest(): void
     {
-        $this->setSelected($_REQUEST['pays']);
-        if ($_REQUEST['pays']!=$this->getName() || $_REQUEST[$this->getName()] == "") {
-            $this->setSelected('fr');
+        if (isset($_REQUEST['pays'])) {
+            $this->setSelected($_REQUEST['pays']);
         }
     }
 }
