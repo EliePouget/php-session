@@ -84,7 +84,7 @@ class CountrySelect
         foreach ($countries as $country) {
             $code = $country->getCode();
             $name = $country->getName();
-            if ($this->getSelected()==$name) {
+            if ($this->getSelected()==$code) {
                 $res .= <<<HTML
                 <option selected value='$code'>$name</option>
             HTML;
@@ -101,10 +101,9 @@ class CountrySelect
     }
     public function setSelectedFromRequest(): void
     {
-        if (array_key_exists($this->getName(), $_REQUEST)) {
-            if ($_REQUEST[$this->getName()] != "") {
-                $this->setSelected($this->getName());
-            }
+        $this->setSelected($_REQUEST['pays']);
+        if ($_REQUEST['pays']!=$this->getName() || $_REQUEST[$this->getName()] == "") {
+            $this->setSelected('fr');
         }
     }
 }
