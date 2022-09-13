@@ -15,9 +15,19 @@ class SessionManagedCountrySelect extends CountrySelect
     {
         parent::__construct(self::NAME, $selected, $firstOption);
         Session::start();
+        $this->setSelectedFromSession();
+        $this->setSelectedFromRequest();
+        $this->saveSelectedIntoSession();
     }
     public function saveSelectedIntoSession(): void
     {
-        $_SESSION[self::NAME] = self::NAME;
+        $_SESSION[self::NAME] = $this->getSelected();
+    }
+
+    public function setSelectedFromSession(): void
+    {
+        if (isset($_SESSION[self::NAME])) {
+            $this->setSelected($_SESSION[self::NAME]);
+        }
     }
 }
